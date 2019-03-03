@@ -1,0 +1,25 @@
+<div data-component="login">
+  <div class="row">
+    <div class="col-12">
+      <header>Login</header>
+    </div>
+  </div>
+  <div class="row body">
+    <div class="col-12">
+      <div class="form-container">
+        <form novalidate [formGroup]="login" (ngSubmit)="onLogin(login)">
+          <div class="col-12">
+            <input type="text" formControlName="username" id="username" placeholder="UserName">
+            <div class="alert alert-danger" *ngIf="login.get('username').invalid && (login.get('username').dirty || login.get('username').touched) && login.get('username').errors.required ">Please enter username</div>
+          </div>
+          <div class="col-12">
+            <input type="text" formControlName="password" id="password" placeholder="Password">
+          </div>
+          <div class="col-12">
+            <input type="submit" [disabled]="login.invalid" value="Login">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

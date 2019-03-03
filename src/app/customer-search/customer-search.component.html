@@ -1,0 +1,41 @@
+<div class="row" data-component="customer-search">
+  <div class="row">
+      <div class="col-12">
+        <header>Customer</header>
+      </div>
+    </div>
+    <div class="row body">
+      <div class="col-12">
+        <div class="form-container">
+          <form novalidate [formGroup]="customerSearch" (ngSubmit)="onSearch(customerSearch)">
+            <div class="row">
+              <div class="col-6">
+                <label for="cust_name">Name </label>
+              </div>
+              <div class="col-6">
+                <input type="text" formControlName="cust_name" id="cust_name" >
+                <div class="alert alert-danger" *ngIf="customerSearch.get('cust_name').invalid && (customerSearch.get('cust_name').dirty || customerSearch.get('cust_name').touched) && customerSearch.get('cust_name').errors.required ">Please enter Name to search</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="search">Search</label>
+              </div>
+              <div class="col-6">
+                <input type="text" formControlName="search" id="search">
+                <div class="alert alert-danger" *ngIf="customerSearch.get('search').invalid && (customerSearch.get('search').dirty || customerSearch.get('search').touched) && customerSearch.get('search').errors.required ">Please enter search keyword</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input type="submit" [disabled]="customerSearch.invalid" value="Search">
+              </div>
+              <div class="col-6">
+                <input type="button" value="Logout" (click)="onLogOut()">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

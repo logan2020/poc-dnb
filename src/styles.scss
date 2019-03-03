@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+tabset{
+    width: 100%;
+    ul{
+        li.nav-item{
+            background-color: blue;
+            a{
+                color: white;
+                border-radius: unset;
+            }
+        }
+        li.nav-item.active{
+            a{
+                color: black;
+                border-radius: unset;
+            }
+        }
+    }
+}
